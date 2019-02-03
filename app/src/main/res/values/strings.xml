@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">SpeechToText</string>
+    <string name="app_name"> Hear my Prof </string>
+
+    <string name= "text_logo">Android Tutorials Hub </string>
+    <string name= "text_hint_email">Email</string>
+    <string name = "text_hint_password">Password</string>
+    <string name= "text_login">Login</string>
+
+
 </resources>
+
+
+
+
+
