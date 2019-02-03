@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
     private var mPermissionToRecord = false
     private var mAudioEmitter: AudioEmitter? = null
-    private lateinit var mTextView: TextSwitcher
+    private lateinit var mTextView: TextView
 
     private val mSpeechClient by lazy {
         // NOTE: The line below uses an embedded credential (res/raw/sa.json).
@@ -73,15 +73,7 @@ class MainActivity : AppCompatActivity() {
 
         // get UI element
         mTextView = findViewById(R.id.last_recognize_result)
-        mTextView.setFactory {
-            val t = TextView(this)
-            t.setText(R.string.start_talking)
-            t.gravity = Gravity.TOP or Gravity.CENTER_HORIZONTAL
-            t.setTextAppearance(android.R.style.TextAppearance_Large)
-            t
-        }
-        mTextView.setInAnimation(applicationContext, android.R.anim.fade_in)
-        mTextView.setOutAnimation(applicationContext, android.R.anim.fade_out)
+        mTextView.text = "Please say something!"
     }
 
     override fun onResume() {
@@ -91,15 +83,20 @@ class MainActivity : AppCompatActivity() {
         if (mPermissionToRecord) {
             val isFirstRequest = AtomicBoolean(true)
             mAudioEmitter = AudioEmitter()
-
             // start streaming the data to the server and collect responses
             val requestStream = mSpeechClient.streamingRecognizeCallable()
                     .bidiStreamingCall(object : ApiStreamObserver<StreamingRecognizeResponse> {
                         override fun onNext(value: StreamingRecognizeResponse) {
                             runOnUiThread {
                                 when {
-                                    value.resultsCount > 0 -> mTextView.setText(value.getResults(0).getAlternatives(0).transcript)
-                                    else -> mTextView.setText(getString(R.string.api_error))
+                                    value.resultsCount > 0 -> {
+                                        if (mTextView.text == "Please say something!") { mTextView.text = " " }
+                                        mTextView.append(value.getResults(0).getAlternatives(0).transcript)
+                                    }
+                                    else -> {
+                                        mTextView.text = getString(R.string.api_error)
+                                        mTextView.text = ""
+                                    }
                                 }
                             }
                         }
