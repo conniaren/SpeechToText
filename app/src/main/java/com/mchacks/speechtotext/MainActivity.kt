@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
         // get UI element
         mTextView = findViewById(R.id.last_recognize_result)
-        mTextView.text = "Please say something!"
+        mTextView.text = "Start recording as the Prof speaks and the rest is worry free!"
     }
 
     override fun onResume() {

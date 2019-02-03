@@ -18,5 +18,8 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#FFFFFF</color>
+
+    <color name="colorGreenish_A400">#FF80AB</color>
+    <color name="colorGreenish_900">#00E5FF</color>
 </resources>
