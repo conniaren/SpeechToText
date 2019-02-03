@@ -1,3 +1,1 @@
 # SpeechToText
-
-hi
