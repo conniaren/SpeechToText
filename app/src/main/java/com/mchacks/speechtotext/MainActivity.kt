@@ -37,6 +37,8 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 private const val TAG = "Speech"
 
+public const val INIT_RECORDING = "Start recording as the Prof speaks and the rest is worry free!"
+
 /**
  * This example demonstrates calling the Cloud Speech-to-Text bidirectional
  * streaming API.
@@ -73,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
         // get UI element
         mTextView = findViewById(R.id.last_recognize_result)
-        mTextView.text = "Start recording as the Prof speaks and the rest is worry free!"
+        mTextView.text = INIT_RECORDING
     }
 
     override fun onResume() {
@@ -90,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                             runOnUiThread {
                                 when {
                                     value.resultsCount > 0 -> {
-                                        if (mTextView.text == "Please say something!") { mTextView.text = " " }
+                                        if (mTextView.text == INIT_RECORDING) { mTextView.text = " " }
                                         mTextView.append(value.getResults(0).getAlternatives(0).transcript)
                                     }
                                     else -> {

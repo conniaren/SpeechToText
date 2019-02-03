@@ -51,6 +51,8 @@
         android:layout_marginBottom="8dp"
         android:layout_x="160dp"
         android:layout_y="620dp"
+        android:textOn="STOP"
+        android:textOff="RECORD"
         android:background="@drawable/round_button"
         android:checked="false"
         android:drawableTop="@android:drawable/ic_btn_speak_now"
