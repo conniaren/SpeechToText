@@ -10,14 +10,15 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="308dp"
+        android:layout_width="311dp"
         android:layout_height="67dp"
+        android:fontFamily="@font/Roboto_Light"
         android:text="Start Recording as the Prof Speaks and the rest is worry free!"
-        android:fontFamily="Roboto-Thin"
-        android:textColor="#FFFFFF"
         android:textAppearance="@android:style/TextAppearance.Holo.Small"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteX="63dp"
         tools:layout_editor_absoluteY="290dp" />
 
     <ToggleButton
@@ -34,9 +35,6 @@
         android:visibility="visible"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="618dp" />
-
-
-
 
 
 </android.support.constraint.ConstraintLayout>
